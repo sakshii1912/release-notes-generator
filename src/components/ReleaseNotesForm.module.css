@@ -1,0 +1,370 @@
+/* Form Container */
+.formContainer {
+    background: #161b22;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Sticky Input Section */
+  .inputSection {
+    position: sticky;
+    top: 0;
+    background: #161b22;
+    padding-bottom: 15px;
+    z-index: 10;
+    margin-bottom: 25px;
+  }
+  
+  /* Input Group */
+ /* styles for the input group */
+.inputGroup {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 2px solid #d1d1d1;
+    border-radius: 8px;
+    padding: 10px;
+    transition: all 0.3s ease;
+  }
+  /* Icon style inside the input field */
+.inputGroup .icon {
+    margin-right: 10px;
+    color: #1195C3;
+  }
+  /* Input field style */
+.formInput {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    /* Default background color */
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  /* Style when repo URL is provided */
+
+  /* Remove the focus turning white on input */
+  .formInput:focus {
+    color: #0d1117 !important;
+    background: #c9d1d9;
+  }
+  
+/* Placeholder color */
+.formInput::placeholder {
+    color: #333;
+  }
+  
+  
+  /* Button */
+  .formButton {
+    background-color: #238636;
+    color: white;
+    border: none;
+    padding: 14px;
+    font-size: 18px; /* Slightly larger button */
+    cursor: pointer;
+    border-radius: 8px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* Button Hover Effect */
+  .formButton:hover {
+    background-color: #2ea043;
+    transform: scale(1.05);
+  }
+  
+  /* Button Disabled */
+  .formButton:disabled {
+    background-color: #30363d;
+    cursor: not-allowed;
+  }
+  
+  /* Loader Animation */
+  .loader {
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Release Notes Container */
+  .releaseNotesContainer {
+    margin-top: 40px;
+    background: #0d1117;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.6);
+  }
+  
+  /* Timeline List */
+  .timelineList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Timeline Item */
+  .timelineItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+    border-bottom: 1px solid #30363d;
+    margin-bottom: 15px;
+    align-items: center;
+    border-radius: 8px;
+    background: #161b22;
+    transition: background-color 0.3s ease;
+  }
+  
+  .timelineItem:hover {
+    background-color: #1f2328;
+  }
+  
+  .leftSide {
+    flex: 2;
+    color: #c9d1d9;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .eventIcon {
+    margin-right: 15px;
+    font-size: 28px;
+  }
+  
+  .eventType {
+    font-weight: bold;
+    margin-right: 15px;
+  }
+  
+  .eventAuthor {
+    font-weight: bold;
+    color: #8b949e;
+    margin-right: 10px;
+  }
+  
+  .center {
+    font-weight: bold;
+    text-align: center;
+    flex-basis: 20%;
+    color: #8b949e;
+  }
+  
+  .rightSide {
+    flex-basis: 25%;
+    text-align: right;
+  }
+  
+  .eventLink {
+    color: #1195c3;
+    text-decoration: none;
+    font-size: 16px;
+    margin-top: 5px;
+    transition: color 0.3s ease;
+  }
+  
+  .eventLink:hover {
+    color: #0f7fa5;
+  }
+  
+  /* Time Block Item */
+  .timeBlockItem {
+    text-align: center;
+    padding: 15px 0;
+    color: #8b949e;
+    font-weight: bold;
+    border-bottom: 1px solid #30363d;
+    margin-bottom: 25px;
+    background: #0d1117;
+    border-radius: 8px;
+  }
+  
+  /* Export Button */
+  .exportButton {
+    margin-top: 25px;
+    padding: 12px 25px;
+    background-color: #2ea043;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .exportButton:hover {
+    background-color: #2ea043;
+    transform: scale(1.05);
+  }
+  
+  .exportButton:disabled {
+    background-color: #30363d;
+    cursor: not-allowed;
+  }
+  
+  /* Filters Section */
+  .filtersSection {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .searchInput {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #30363d;
+    background: #0d1117;
+    color: #c9d1d9;
+    transition: background-color 0.3s ease, font-size 0.3s ease;
+  }
+  
+  .searchInput:focus {
+    background: #161b22;
+    color: #c9d1d9;
+  }
+  
+  .filterSelect {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #30363d;
+    background: #0d1117;
+    color: #c9d1d9;
+    transition: background-color 0.3s ease;
+  }
+  
+  .filterSelect:focus {
+    background: #161b22;
+    color: #c9d1d9;
+  }
+  
+  .dateColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: white;  /* White text for the dates */
+    font-size: 14px;
+  }
+  
+  
+  .eventDate {
+    font-size: 15px;
+    color: #eee4e4;
+    margin-left: 10px;
+  }
+  
+  /* Date Filters Section */
+.dateFiltersSection {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #c9d1d9;
+  }
+  
+/* From Time Input */
+.fromTimeInput,
+.toTimeInput {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #30363d;
+  background: #0d1117;
+  color: #c9d1d9;
+  transition: background-color 0.3s ease;
+  width: 100%; /* Ensures both inputs fill the container width */
+}
+
+/* Focus State for Time Inputs */
+.fromTimeInput:focus,
+.toTimeInput:focus {
+  background: #161b22;
+  color: #c9d1d9;
+}
+
+/* Time Filter Label */
+.timeFilterLabel {
+  font-size: 14px;
+  font-weight: bold;
+  color: #8b949e;
+  margin-bottom: 5px;
+}
+
+  
+  /* From Time Input */
+.fromTimeInput,
+.toTimeInput {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #30363d;
+  background: #0d1117;
+  color: #c9d1d9;
+  transition: background-color 0.3s ease;
+  width: 100%; /* Ensures both inputs fill the container width */
+}
+
+/* Focus State for Time Inputs */
+.fromTimeInput:focus,
+.toTimeInput:focus {
+  color: #161b22;
+background: #c9d1d9;
+}
+
+/* Time Filter Label */
+.timeFilterLabel {
+  font-size: 14px;
+  font-weight: bold;
+  color: #8b949e;
+  margin-bottom: 5px;
+}
+/* Date Filter Section */
+.dateFilter {
+    display: flex;
+    gap: 3px; /* Increase space between the two date inputs */
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  /* Date Input Fields */
+  .dateInput {
+    padding: 8px; /* Adjust padding for smaller/larger input size */
+    font-size: 14px; /* Adjust font size */
+    width: 48%; /* Set each input to take 48% of the width */
+    border-radius: 6px;
+    border: 1px solid #30363d;
+    background: #0d1117;
+    color: #c9d1d9;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Focus State for Date Inputs */
+  .dateInput:focus {
+    background: #161b22;
+    color: #c9d1d9;
+  }
+  

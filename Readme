@@ -1,0 +1,122 @@
+📦 release-notes-generator
+├── 📂 frontend                  # Frontend (Next.js + TypeScript)
+│   ├── 📂 src
+│   │   ├── 📂 components        # UI Components
+│   │   │   ├── 📄 Layout.tsx
+│   │   │   ├── 📄 ReleaseNotesForm.tsx
+│   │   ├── 📂 pages             # Next.js Pages
+│   │   │   ├── 📂 api          # API Routes (calls backend)
+│   │   │   │   ├── 📄 generate-release.ts
+│   │   │   ├── 📄 _app.tsx     # Root App Component
+│   │   │   ├── 📄 index.tsx    # Homepage
+│   │   ├── 📂 styles           # CSS & Modules
+│   │   │   ├── 📄 globals.css
+│   │   │   ├── 📄 Home.module.css
+│   ├── 📄 package.json         # Frontend Dependencies
+│   ├── 📄 tsconfig.json        # TypeScript Config
+│   ├── 📄 next-env.d.ts        # TypeScript Definitions
+│   ├── 📄 README.md            # Documentation
+│   ├── 📄 .env                 # Environment Variables
+│   ├── 📂 .next                # Next.js Build Output (ignored in Git)
+│   ├── 📂 node_modules         # Installed Packages (ignored in Git)
+│   ├── 📄 package-lock.json    # Dependency Lockfile
+│
+├── 📂 backend                   # Backend (Node.js + Express)
+│   ├── 📄 server.js             # Main Express Server
+│   ├── 📄 package.json          # Backend Dependencies
+│   ├── 📄 package-lock.json     # Dependency Lockfile
+│   ├── 📄 .env                  # Backend Environment Variables
+│   ├── 📂 node_modules          # Installed Packages (ignored in Git)
+│
+├── 📄 .gitignore                 # Ignore unnecessary files
+└── 📄 README.md                   # Project Overview & Setup Instructions
+
+
+🛠 Tech Stack Used
+Layer	              Technology
+Frontend	          Next.js (React) + TypeScript
+Styling	              CSS Modules
+Backend	              Node.js + Express.js
+API Calls	          REST API
+State Mgmt	          React Hooks (useState, useEffect)
+Data Fetching	      Fetch API / Axios
+Build Tool	          Next.js Build (.next/)
+Version Control	      Git + GitHub
+
+
+📜 Commit → Code change pushed to the repository.
+🐞 Bug Fix → PRs/issues related to bug fixes.
+🚀 Feature → PRs adding new features.
+⚙️ Chores → PRs for maintenance/refactoring.
+📝 Others → Miscellaneous PRs.
+⚠️ Issue → Reported problem (non-bug).
+🔖 Release → Official repository releases.
+👥 Contributor → Developers who contributed.
+
+Output:
+🚀 Pull Request → A PR introducing a new feature.
+⚙️ Pull Request → A PR categorized as a chore (e.g., refactoring, maintenance work).
+📜 Commit → A commit made to the repository.
+🐞 Issue → A reported bug in the repository.
+⚠️ Issue → A general issue or warning (not necessarily a bug).
+🔖 Release → A new version or release of the repository.
+👥 Contributor → A contributor who has made commits to the repository.
+
+AI:
+1️⃣ Summarization & Insights:
+    📝 What it does: AI can analyze a large number of PRs, commits, and issues to generate a summary.
+    ✅ Fetches GitHub commits & PRs
+    ✅ Sends them to Llama 2 (via Hugging Face API)
+    ✅ Summarizes them inside your existing Express app
+    ✅ Displays AI-generated Release Notes
+     Short Summary of Steps
+Setup Hugging Face API Key in .env
+Install Dependencies (express, axios, cors, dotenv, body-parser, node-fetch)
+Fix Issues in Your API (fetch import, Hugging Face API response format)
+Test the API Locally
+Deploy if Needed (Optional)
+
+for using llama 2 for summary of message
+🛠 Steps to Convert Express.js to FastAPI
+Set Up FastAPI → Install required dependencies.
+Define API Routes → Convert Express.js endpoints to FastAPI.
+Handle AI Summarization → Use Hugging Face transformers.
+Run FastAPI → Use uvicorn to start the server.
+
+
+📝 Summary Output Format:
+📜 Commits: Summary of key code changes.
+⚙️ Pull Requests: Enhancements, fixes, and features.
+⚠️ Issues: Reported problems or bugs.
+
+Tech Stack for AI Chatbot with Vector Search for Release Notes
+Backend & API
+🔹 Python (FastAPI/Flask) – For building the chatbot backend
+🔹 LangChain – For handling LLM-powered search & responses
+🔹 OpenAI/GPT – For AI-based text generation & summarization
+🔹 Faiss / Pinecone / ChromaDB – For vector database & similarity search
+🔹 GitHub API – To fetch commits, pull requests, and issues
+
+Data Processing & Storage
+🔹 Hugging Face Sentence Transformers – For converting text into embeddings
+🔹 PostgreSQL / MongoDB – To store structured release notes
+🔹 Redis / Memcached – For caching frequently searched results
+
+Frontend & Integration
+🔹 React.js / Next.js – For UI if you want a web-based chatbot
+🔹 Slack API – For real-time Slack integration
+🔹 Docker & Kubernetes – For containerization and deployment
+
+Why Use LangChain?
+✅ Simplifies Retrieval-Augmented Generation (RAG) – Helps in fetching relevant GitHub commits, PRs, and issues using vector search.
+✅ Integrates with FAISS / ChromaDB – Allows you to efficiently search embedded release notes.
+✅ Works with Open-Source LLMs – Can use Mistral-7B, LLaMA 2, or Hugging Face Models instead of OpenAI.
+✅ Streamlines Data Processing – Helps structure commits and PRs for better searchability.
+
+How LangChain Fits into Your Chatbot Workflow
+1️⃣ User asks a question (e.g., "What new features were added in the last release?")
+2️⃣ LangChain converts the question into an embedding (using Hugging Face Sentence Transformers)
+3️⃣ FAISS/ChromaDB searches for similar commits, PRs, and issues
+4️⃣ Most relevant results are retrieved & formatted
+5️⃣ LangChain generates a structured response using a selected LLM
+6️⃣ Chatbot returns the formatted release notes
