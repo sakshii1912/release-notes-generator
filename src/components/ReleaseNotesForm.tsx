@@ -35,6 +35,15 @@ const ReleaseNotesForm: React.FC = () => {
   const [fromDate, setFromDate] = useState<string>("");
   const [toDate, setToDate] = useState<string>("");
 
+  // States for summarization
+  const [summaryEachEvent, setSummaryEachEvent] = useState<{ [key: number]: string }>({});
+  const [summaryWhole, setSummaryWhole] = useState<string | null>(null);
+  const [loadingSummaryEach, setLoadingSummaryEach] = useState<boolean>(false);
+  const [loadingSummaryWhole, setLoadingSummaryWhole] = useState<boolean>(false);
+  const [showSummaryEach, setShowSummaryEach] = useState<boolean>(false);
+
+  
+
   const formatDate = (dateString: string | undefined): string => {
     if (!dateString) return "N/A";
     const date = new Date(dateString);
@@ -96,6 +105,57 @@ const ReleaseNotesForm: React.FC = () => {
     return matchesSearch && matchesAuthor && fromDateCheck && toDateCheck;
   });
   
+  const handleSummarizedTimeline = async () => {
+    setLoading(true);
+    setError("");
+    setData(null);
+  
+    try {
+      const response = await fetch("/api/summarized-timeline", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ repositoryUrl }), // Ensure `repositoryUrl` is correctly defined
+      });
+  
+      const responseData = await response.json();
+  
+      if (!response.ok) {
+        throw new Error(responseData.detail || "Failed to fetch summarized timeline");
+      }
+  
+      setData(responseData);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Error fetching summarized timeline");
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+    // Function to generate single summarized release notes using fetch
+const generateSingleSummarizedReleaseNotes = async () => {
+  setLoadingSummaryWhole(true);  // Set loading state
+  setError("");  // Reset any previous errors
+  setSummaryWhole(null);  // Reset previous summary
+
+  try {
+    const response = await fetch("/generate-single-summarized-release-note/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ repositoryUrl }), // Ensure `repositoryUrl` is defined
+    });
+
+    if (!response.ok) throw new Error("Failed to generate release note");
+
+    const responseData = await response.json();
+    setSummaryWhole(responseData.release_note);  // Set the generated release note
+
+  } catch (error) {
+    console.error("Error generating release note:", error);
+    setError("Error generating release note");  // Handle error state
+  } finally {
+    setLoadingSummaryWhole(false);  // Reset loading state
+  }
+};
 
   
   const generatePDF = () => {
@@ -169,6 +229,34 @@ const ReleaseNotesForm: React.FC = () => {
           </button>
         </form>
       </div>
+
+      {data && (
+  <div className={styles.buttonGroup}>
+  {/* Summarize Each Event Button */}
+  
+  <button 
+  type="button" 
+  onClick={handleSummarizedTimeline} 
+  disabled={loading} 
+  className={styles.summarizeButton}
+>
+  {loading ? "Fetching..." : "Get Summarized Timeline"}
+</button>
+
+
+
+
+
+    <button 
+      onClick={generateSingleSummarizedReleaseNotes} 
+      disabled={loadingSummaryWhole} 
+      className={styles.summarizeButton}
+    >
+      {loadingSummaryWhole ? "Summarizing Timeline..." : "Summarize Whole Timeline"}
+    </button>
+  </div>
+)}
+
 
       {data && (
         <div className={styles.filtersSection}>

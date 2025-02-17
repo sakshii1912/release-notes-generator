@@ -368,3 +368,48 @@ background: #c9d1d9;
     color: #c9d1d9;
   }
   
+
+  .dateFilter {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .dateInput {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .buttonGroup {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .buttonGroup {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .summarizeButton {
+    background-color: #2ea043;
+    color: white;
+    border: none;
+    padding: 15px 30px; /* Increased padding for bigger buttons */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px; /* Increased font size */
+    width: 40%; /* Increased button width */
+    max-width: 300px; /* Limits button size */
+    transition: background-color 0.3s ease;
+    text-align: center;
+  }
+  
+  .summarizeButton:hover {
+    background-color: #237a33;
+  }
+  

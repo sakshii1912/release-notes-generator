@@ -120,3 +120,22 @@ How LangChain Fits into Your Chatbot Workflow
 4️⃣ Most relevant results are retrieved & formatted
 5️⃣ LangChain generates a structured response using a selected LLM
 6️⃣ Chatbot returns the formatted release notes
+
+
+📦 release-notes-generator
+├── 📂 frontend                 
+│   ├── 📂 src
+│   │   ├── 📂 components        
+│   │   │   ├── 📄 Layout.tsx
+│   │   │   ├── 📄 ReleaseNotesForm.tsx  ✅ (Updated - Added 2 "Generate Summary" buttons)  
+│   │   ├── 📂 pages            
+│   │   │   ├── 📂 api          
+│   │   │   │   ├── 📄 generate-release.ts
+│   │   │   │   ├── 📄 summarize.ts  ✅ (New API Route for Summary)
+│   │   │   ├── 📄 _app.tsx    
+│   │   │   ├── 📄 index.tsx  
+│   │   ├── 📂 styles           
+│   │   │   ├── 📄 globals.css
+│   │   │   ├── 📄 Home.module.css
+│   │   ├── 📂 services  ✅ (New Folder for API calls)
+│   │   │   ├── 📄 api.ts ✅ (Helper function for API requests)  
